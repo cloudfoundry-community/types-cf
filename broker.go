@@ -1,38 +1,38 @@
 package cf
 
-// BindingIdentity describes Cloud Foundry binding request
-type BindingIdentity struct {
+// ServiceIdentity describes Cloud Foundry based service identity
+type ServiceIdentity struct {
 	ServiceID string `json:"service_id"`
 	PlanID    string `json:"plan_id"`
 }
 
-// ProvisioningRequest describes Cloud Foundry service provisioning request
-type ProvisioningRequest struct {
-	BindingIdentity
+// ServiceProvisioningRequest describes Cloud Foundry service provisioning request
+type ServiceProvisioningRequest struct {
+	ServiceIdentity
 	AppGUID   string `json:"app_guid"`
 	SpaceGUID string `json:"space_guid"`
 }
 
-// ProvisioningResponce describes Cloud Foundry service provisioning response
-type ProvisioningResponce struct {
+// ServiceProvisioningResponce describes Cloud Foundry service provisioning response
+type ServiceProvisioningResponce struct {
 	DashboardURL string `json:"dashboard_url"`
 }
 
-// BindingRequest describes Cloud Foundry binding request
-type BindingRequest struct {
-	BindingIdentity
+// ServiceBindingRequest describes Cloud Foundry service binding request
+type ServiceBindingRequest struct {
+	ServiceIdentity
 	AppGUID          string `json:"app_guid"`
 	OrganizationGUID string `json:"organization_guid"`
 	SpaceGUID        string `json:"space_guid"`
 }
 
-// BindingResponse describes Cloud Foundry binding response
-type BindingResponse struct {
+// ServiceBindingResponse describes Cloud Foundry service binding response
+type ServiceBindingResponse struct {
 	Credentials    *Credential `json:"credentials"`
 	SyslogDrainURL string      `json:"syslog_drain_url"`
 }
 
-// Credential describes Cloud Foundry credential
+// Credential describes Cloud Foundry service binding credential
 type Credential struct {
 	URI      string `json:"uri,omitempty"`
 	Hostname string `json:"hostname,omitempty"`
@@ -43,14 +43,14 @@ type Credential struct {
 	Password string `json:"password,omitempty"`
 }
 
-// UnbindingRequest describes Cloud Foundry binding request
-type UnbindingRequest struct {
-	BindingIdentity
+// ServiceUnbindingRequest describes Cloud Foundry unbinding request
+type ServiceUnbindingRequest struct {
+	ServiceIdentity
 }
 
-// DeprovisioningRequest describes Cloud Foundry binding deprovisioning request
-type DeprovisioningRequest struct {
-	BindingIdentity
+// ServiceDeprovisioningRequest describes Cloud Foundry de-previsioning request
+type ServiceDeprovisioningRequest struct {
+	ServiceIdentity
 }
 
 // BrokerError describes Cloud Foundry broker error
