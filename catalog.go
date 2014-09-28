@@ -5,34 +5,26 @@ type Catalog struct {
 	Services []*Service `json:"services"`
 }
 
-// Identity describes Cloud Foundry identity
-type Identity struct {
-	ID string `json:"id"`
-}
-
-// NamedIdentity describes Cloud Foundry named identity
-type NamedIdentity struct {
-	Identity
-	Name        string `json:"name"`
-	Description string `json:"description"`
-}
-
 // Service describes Cloud Foundry service
 type Service struct {
-	NamedIdentity
-	Bindable  bool         `json:"bindable"`
-	Tags      []string     `json:"tags,omitempty"`
-	Metadata  *ServiceMeta `json:"metadata,omitempty"`
-	Requires  []string     `json:"requires,omitempty"`
-	Plans     []*Plan      `json:"plans"`
-	Dashboard *Dashboard   `json:"dashboard_client,omitempty"`
+	ID          string       `json:"id"`
+	Name        string       `json:"name"`
+	Description string       `json:"description"`
+	Bindable    bool         `json:"bindable"`
+	Tags        []string     `json:"tags,omitempty"`
+	Metadata    *ServiceMeta `json:"metadata,omitempty"`
+	Requires    []string     `json:"requires,omitempty"`
+	Plans       []*Plan      `json:"plans"`
+	Dashboard   *Dashboard   `json:"dashboard_client,omitempty"`
 }
 
 // Plan describes Cloud Foundry plan structure
 type Plan struct {
-	NamedIdentity
-	Metadata *PlanMeta `json:"metadata,omitempty"`
-	Free     bool      `json:"free,omitempty"`
+	ID          string    `json:"id"`
+	Name        string    `json:"name"`
+	Description string    `json:"description"`
+	Metadata    *PlanMeta `json:"metadata,omitempty"`
+	Free        bool      `json:"free,omitempty"`
 }
 
 // PlanMeta describers Cloud Foundry plan meta-data
@@ -55,7 +47,7 @@ type Amount struct {
 
 // Dashboard describes Cloud Foundry dashboard
 type Dashboard struct {
-	Identity
+	ID     string `json:"id"`
 	Secret string `json:"secret"`
 	URI    string `json:"redirect_uri"`
 }

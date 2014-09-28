@@ -1,14 +1,9 @@
 package cf
 
-// ServiceIdentity describes Cloud Foundry based service identity
-type ServiceIdentity struct {
-	ServiceID string `json:"service_id"`
-	PlanID    string `json:"plan_id"`
-}
-
 // ServiceCreationRequest describes Cloud Foundry service provisioning request
 type ServiceCreationRequest struct {
-	ServiceIdentity
+	ServiceID string `json:"service_id"`
+	PlanID    string `json:"plan_id"`
 	AppGUID   string `json:"app_guid"`
 	SpaceGUID string `json:"space_guid"`
 }
@@ -20,7 +15,8 @@ type ServiceCreationResponce struct {
 
 // ServiceBindingRequest describes Cloud Foundry service binding request
 type ServiceBindingRequest struct {
-	ServiceIdentity
+	ServiceID        string `json:"service_id"`
+	PlanID           string `json:"plan_id"`
 	AppGUID          string `json:"app_guid"`
 	OrganizationGUID string `json:"organization_guid"`
 	SpaceGUID        string `json:"space_guid"`
@@ -30,16 +26,6 @@ type ServiceBindingRequest struct {
 type ServiceBindingResponse struct {
 	Credentials    *Credential `json:"credentials"`
 	SyslogDrainURL string      `json:"syslog_drain_url"`
-}
-
-// ServiceBindingDeletionRequest describes Cloud Foundry unbinding request
-type ServiceBindingDeletionRequest struct {
-	ServiceIdentity
-}
-
-// ServiceDeletionRequest describes Cloud Foundry de-previsioning request
-type ServiceDeletionRequest struct {
-	ServiceIdentity
 }
 
 // Credential describes Cloud Foundry service binding credential
