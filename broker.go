@@ -6,15 +6,15 @@ type ServiceIdentity struct {
 	PlanID    string `json:"plan_id"`
 }
 
-// ServiceProvisioningRequest describes Cloud Foundry service provisioning request
-type ServiceProvisioningRequest struct {
+// ServiceCreationRequest describes Cloud Foundry service provisioning request
+type ServiceCreationRequest struct {
 	ServiceIdentity
 	AppGUID   string `json:"app_guid"`
 	SpaceGUID string `json:"space_guid"`
 }
 
-// ServiceProvisioningResponce describes Cloud Foundry service provisioning response
-type ServiceProvisioningResponce struct {
+// ServiceCreationResponce describes Cloud Foundry service provisioning response
+type ServiceCreationResponce struct {
 	DashboardURL string `json:"dashboard_url"`
 }
 
@@ -32,6 +32,16 @@ type ServiceBindingResponse struct {
 	SyslogDrainURL string      `json:"syslog_drain_url"`
 }
 
+// ServiceBindingDeletionRequest describes Cloud Foundry unbinding request
+type ServiceBindingDeletionRequest struct {
+	ServiceIdentity
+}
+
+// ServiceDeletionRequest describes Cloud Foundry de-previsioning request
+type ServiceDeletionRequest struct {
+	ServiceIdentity
+}
+
 // Credential describes Cloud Foundry service binding credential
 type Credential struct {
 	URI      string `json:"uri,omitempty"`
@@ -41,16 +51,6 @@ type Credential struct {
 	Vhost    string `json:"vhost,omitempty"`
 	Username string `json:"username,omitempty"`
 	Password string `json:"password,omitempty"`
-}
-
-// ServiceUnbindingRequest describes Cloud Foundry unbinding request
-type ServiceUnbindingRequest struct {
-	ServiceIdentity
-}
-
-// ServiceDeprovisioningRequest describes Cloud Foundry de-previsioning request
-type ServiceDeprovisioningRequest struct {
-	ServiceIdentity
 }
 
 // BrokerError describes Cloud Foundry broker error
