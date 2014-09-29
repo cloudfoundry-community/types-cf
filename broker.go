@@ -1,4 +1,4 @@
-package cf
+package main
 
 // ServiceCreationRequest describes Cloud Foundry service provisioning request
 type ServiceCreationRequest struct {

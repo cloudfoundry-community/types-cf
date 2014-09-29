@@ -1,4 +1,4 @@
-package cf
+package main
 
 // Catalog describes Cloud Foundry catalog
 type Catalog struct {
