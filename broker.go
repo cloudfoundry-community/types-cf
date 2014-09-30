@@ -2,10 +2,11 @@ package cf
 
 // ServiceCreationRequest describes Cloud Foundry service provisioning request
 type ServiceCreationRequest struct {
-	ServiceID string `json:"service_id"`
-	PlanID    string `json:"plan_id"`
-	AppGUID   string `json:"app_guid"`
-	SpaceGUID string `json:"space_guid"`
+	InstanceID       string `json:"-"`
+	ServiceID        string `json:"service_id"`
+	PlanID           string `json:"plan_id"`
+	OrganizationGUID string `json:"organization_guid"`
+	SpaceGUID        string `json:"space_guid"`
 }
 
 // ServiceCreationResponce describes Cloud Foundry service provisioning response
@@ -15,11 +16,11 @@ type ServiceCreationResponce struct {
 
 // ServiceBindingRequest describes Cloud Foundry service binding request
 type ServiceBindingRequest struct {
-	ServiceID        string `json:"service_id"`
-	PlanID           string `json:"plan_id"`
-	AppGUID          string `json:"app_guid"`
-	OrganizationGUID string `json:"organization_guid"`
-	SpaceGUID        string `json:"space_guid"`
+	InstanceID string `json:"-"`
+	BindingID  string `json:"-"`
+	ServiceID  string `json:"service_id"`
+	PlanID     string `json:"plan_id"`
+	AppGUID    string `json:"app_guid"`
 }
 
 // ServiceBindingResponse describes Cloud Foundry service binding response
