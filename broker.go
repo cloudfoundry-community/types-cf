@@ -25,19 +25,8 @@ type ServiceBindingRequest struct {
 
 // ServiceBindingResponse describes Cloud Foundry service binding response
 type ServiceBindingResponse struct {
-	Credentials    *Credential `json:"credentials"`
-	SyslogDrainURL string      `json:"syslog_drain_url"`
-}
-
-// Credential describes Cloud Foundry service binding credential
-type Credential struct {
-	URI      string `json:"uri,omitempty"`
-	Hostname string `json:"hostname,omitempty"`
-	Port     string `json:"port,omitempty"`
-	Name     string `json:"name,omitempty"`
-	Vhost    string `json:"vhost,omitempty"`
-	Username string `json:"username,omitempty"`
-	Password string `json:"password,omitempty"`
+	Credentials    map[string]string `json:"credentials"`
+	SyslogDrainURL string            `json:"syslog_drain_url"`
 }
 
 // BrokerError describes Cloud Foundry broker error
