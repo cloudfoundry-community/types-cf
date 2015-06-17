@@ -29,6 +29,11 @@ type ServiceBindingResponse struct {
 	SyslogDrainURL string            `json:"syslog_drain_url"`
 }
 
+type ServiceLastOperationReponse struct {
+	State       string `json:"-"`
+	Description string `json:"-"`
+}
+
 // BrokerError describes Cloud Foundry broker error
 type BrokerError struct {
 	Description string `json:"description"`
