@@ -29,7 +29,7 @@ type ServiceBindingResponse struct {
 	SyslogDrainURL string            `json:"syslog_drain_url"`
 }
 
-type ServiceLastOperationReponse struct {
+type ServiceLastOperationResponse struct {
 	State       string `json:"-"`
 	Description string `json:"-"`
 }

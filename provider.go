@@ -19,5 +19,5 @@ type ServiceProvider interface {
 	// UnbindService removes previously created binding
 	UnbindService(instanceID, bindingID string) *ServiceProviderError
 
-	LastOperation(instanceId string) *ServiceProviderError
+	LastOperation(instanceID string) (*ServiceLastOperationResponse, *ServiceProviderError)
 }
