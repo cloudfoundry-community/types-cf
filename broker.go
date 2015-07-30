@@ -2,11 +2,12 @@ package cf
 
 // ServiceCreationRequest describes Cloud Foundry service provisioning request
 type ServiceCreationRequest struct {
-	InstanceID       string `json:"-"`
-	ServiceID        string `json:"service_id"`
-	PlanID           string `json:"plan_id"`
-	OrganizationGUID string `json:"organization_guid"`
-	SpaceGUID        string `json:"space_guid"`
+	InstanceID       string            `json:"-"`
+	ServiceID        string            `json:"service_id"`
+	PlanID           string            `json:"plan_id"`
+	OrganizationGUID string            `json:"organization_guid"`
+	SpaceGUID        string            `json:"space_guid"`
+	Parameters       map[string]string `json:parameters`
 }
 
 // ServiceCreationResponse describes Cloud Foundry service provisioning response
