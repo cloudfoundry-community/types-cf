@@ -27,7 +27,7 @@ type ServiceBindingRequest struct {
 // ServiceBindingResponse describes Cloud Foundry service binding response
 type ServiceBindingResponse struct {
 	Credentials    map[string]string `json:"credentials"`
-	SyslogDrainURL string            `json:"syslog_drain_url"`
+	SyslogDrainURL string            `json:"syslog_drain_url,omitempty"`
 }
 
 type ServiceLastOperationResponse struct {
