@@ -7,15 +7,18 @@ type Catalog struct {
 
 // Service describes Cloud Foundry service
 type Service struct {
-	ID          string       `json:"id"`
-	Name        string       `json:"name"`
-	Description string       `json:"description"`
-	Bindable    bool         `json:"bindable"`
-	Tags        []string     `json:"tags,omitempty"`
-	Metadata    *ServiceMeta `json:"metadata,omitempty"`
-	Requires    []string     `json:"requires,omitempty"`
-	Plans       []*Plan      `json:"plans"`
-	Dashboard   *Dashboard   `json:"dashboard_client,omitempty"`
+	ID                   string       `json:"id"`
+	Name                 string       `json:"name"`
+	Description          string       `json:"description"`
+	Bindable             bool         `json:"bindable"`
+	InstancesRetrievable bool         `json:"instances_retrievable"`
+	BindingsRetrievable  bool         `json:"bindings_retrievable"`
+	Tags                 []string     `json:"tags,omitempty"`
+	PlanUpdatable        bool         `json:"plan_updateable"`
+	Plans                []*Plan      `json:"plans"`
+	Requires             []string     `json:"requires,omitempty"`
+	Metadata             *ServiceMeta `json:"metadata,omitempty"`
+	Dashboard            *Dashboard   `json:"dashboard_client,omitempty"`
 }
 
 // Plan describes Cloud Foundry plan structure
@@ -23,8 +26,9 @@ type Plan struct {
 	ID          string    `json:"id"`
 	Name        string    `json:"name"`
 	Description string    `json:"description"`
-	Metadata    *PlanMeta `json:"metadata,omitempty"`
 	Free        bool      `json:"free,omitempty"`
+	Bindable    bool      `json:"bindable,omitempty"`
+	Metadata    *PlanMeta `json:"metadata,omitempty"`
 }
 
 // PlanMeta describers Cloud Foundry plan meta-data
